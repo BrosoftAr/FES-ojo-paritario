@@ -70,8 +70,8 @@ const HomePage: React.FC = () => {
 
 const Title = styled.h2`
   font-size: 17px;
+  font-family: "Graphik";
   font-weight: 500;
-  font-family: Roboto;
   margin-bottom: 10px;
 `;
 export default HomePage;

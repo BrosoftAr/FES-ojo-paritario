@@ -1,67 +1,38 @@
-/* work-sans-300 - latin */
+/* graphik-light */
 @font-face {
-  font-family: "Work Sans";
+  font-family: "Graphik";
   font-style: normal;
   font-weight: 300;
-  src: local(""), url("./fonts/work-sans-v11-latin-300.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/work-sans-v11-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("./fonts/GraphikLight.otf") format("opentype");
 }
 
-/* work-sans-regular - latin */
+/* graphik-regular */
 @font-face {
-  font-family: "Work Sans";
+  font-family: "Graphik";
   font-style: normal;
   font-weight: 400;
-  src: local(""),
-    url("./fonts/work-sans-v11-latin-regular.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/work-sans-v11-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("./fonts/GraphikRegular.otf") format("opentype");
 }
 
-/* work-sans-700 - latin */
+/* graphik-medium */
 @font-face {
-  font-family: "Work Sans";
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/GraphikMedium.otf") format("opentype");
+}
+
+/* graphik-700 */
+@font-face {
+  font-family: "Graphik";
   font-style: normal;
   font-weight: 700;
-  src: local(""), url("./fonts/work-sans-v11-latin-700.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/work-sans-v11-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* roboto-300 - latin */
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 300;
-  src: local(""), url("./fonts/roboto-v27-latin-300.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/roboto-v27-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* roboto-regular - latin */
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  src: local(""), url("./fonts/roboto-v27-latin-regular.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/roboto-v27-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* roboto-700 - latin */
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  src: local(""), url("./fonts/roboto-v27-latin-700.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("./fonts/roboto-v27-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("./fonts/GraphikBold.otf") format("opentype");
 }
 
 // Set the default text font for the App
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Graphik", sans-serif;
 }
 
 // Set the default title font for the App
@@ -71,5 +42,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Graphik", sans-serif;
 }

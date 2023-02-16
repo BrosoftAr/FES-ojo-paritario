@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import RoutesEnum from "../shared/RoutesEnum";
+import colors from "../styles/colors";
 
 interface MainMenuProps {
   isVisible: boolean;
@@ -106,7 +107,7 @@ const Container = styled.div<{ isVisible: boolean }>`
   transform: translateX(${(props) => (props.isVisible ? "0" : "-100%")});
   transition: transform 0.5s ease 0s;
   min-height: 100vh;
-  background: #6d6ae7;
+  background: ${colors.primary};
 `;
 
 const StyledMenu = styled(Menu)`
