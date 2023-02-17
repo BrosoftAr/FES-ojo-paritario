@@ -162,13 +162,13 @@ const NewIncidentPage: React.FC = () => {
           <FormInput name="email" label="Email de contacto" isRequired type="email"/>
           <FormInput name="contact" label="Otras forma de contacto para ampliar información (celular, otros medios)" />
           <FormSelect name="territory" label="Territorio" isRequired placeholder="Seleccione el territorio" typeEnum={TerritoryTypeEnum} typeLabelEnum={TerritoryTypeLabelEnum}/>
-          <FormSelect name="charge" label="Cargo" isRequired placeholder="Seleccione el cargo" typeEnum={ChargeTypeEnum} typeLabelEnum={ChargeTypeLabelEnum}/>
+          <FormSelect name="role" label="Cargo" isRequired placeholder="Seleccione el cargo" typeEnum={ChargeTypeEnum} typeLabelEnum={ChargeTypeLabelEnum}/>
           <FormInput name="number" label="Nº" type="number" isRequired />
-          <FormInput name="listName" label="Nombre de Lista" isRequired />
-          <FormInput name="party" label="Partido u Alianza" isRequired />
-          
+          <FormInput name="votingList" label="Nombre de Lista" isRequired />
+          <FormInput name="politicalParty" label="Partido u Alianza" isRequired />
+          { /* TODO add appealExpiration */ }
           <FormInput name="breach" label="¿Qué no está cumpliendo?" />
-          <FormTextArea name="comments" label="Comentarios adicionales que quieras compartir" />
+          <FormTextArea name="description" label="Comentarios adicionales que quieras compartir" />
 
           <Form.Item
             name="attachments"
