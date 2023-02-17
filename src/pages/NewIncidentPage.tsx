@@ -1,13 +1,9 @@
 import {
   Button as AntButton,
   Form,
-  Input,
   message,
-  Select,
-  Spin,
   Upload,
 } from "antd";
-import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import { UploadOutlined } from "@ant-design/icons";
@@ -19,9 +15,16 @@ import ApiEndpoints from "../shared/ApiEndpoints";
 import { useHistory } from "react-router-dom";
 import RoutesEnum from "../shared/RoutesEnum";
 import {
-  IncidentTypeEnum,
-  IncidentTypeLabelEnum,
+  AnonymousTypeEnum,
+  AnonymousTypeLabelEnum,
+  TerritoryTypeEnum,
+  TerritoryTypeLabelEnum,
+  ChargeTypeEnum,
+  ChargeTypeLabelEnum,
 } from "../shared/IncidentsTypes";
+import FormInput from "../components/Form/Input";
+import FormSelect from "../components/Form/Select";
+import FormTextArea from "../components/Form/TextArea";
 
 interface FormValues {
   situation: string;
@@ -149,74 +152,27 @@ const NewIncidentPage: React.FC = () => {
     (fileListItem) => fileListItem.status === "uploading"
   );
 
-  console.log("fileList", fileList);
-  console.log("hasUploadingFileListItem", hasUploadingFileListItem);
-
   return (
     <PageContainer showHeader>
       <ContentContainer>
         <PageTitle>Nuevo incidente</PageTitle>
         <Form onFinish={submit}>
-          <Form.Item
-            name="situation"
-            label="Situación"
-            rules={[{ required: true, message: "Dato requerido" }]}
-          >
-            <Select placeholder="Seleccione la situación">
-              {Object.values(IncidentTypeEnum).map((type) => (
-                <Select.Option key={type} value={type}>
-                  {IncidentTypeLabelEnum[type]}
-                </Select.Option>
-              ))}
-            </Select>
-          </Form.Item>
+          <FormInput name="name" label="Nombre" isRequired />
+          <FormSelect name="anonymous" label="Quiero anonimato para reportar" isRequired typeEnum={AnonymousTypeEnum} typeLabelEnum={AnonymousTypeLabelEnum}/>
+          <FormInput name="email" label="Email de contacto" isRequired type="email"/>
+          <FormInput name="contact" label="Otras forma de contacto para ampliar información (celular, otros medios)" />
+          <FormSelect name="territory" label="Territorio" isRequired placeholder="Seleccione el territorio" typeEnum={TerritoryTypeEnum} typeLabelEnum={TerritoryTypeLabelEnum}/>
+          <FormSelect name="charge" label="Cargo" isRequired placeholder="Seleccione el cargo" typeEnum={ChargeTypeEnum} typeLabelEnum={ChargeTypeLabelEnum}/>
+          <FormInput name="number" label="Nº" type="number" isRequired />
+          <FormInput name="listName" label="Nombre de Lista" isRequired />
+          <FormInput name="party" label="Partido u Alianza" isRequired />
+          
+          <FormInput name="breach" label="¿Qué no está cumpliendo?" />
+          <FormTextArea name="comments" label="Comentarios adicionales que quieras compartir" />
 
           <Form.Item
-            name="role"
-            label="Puesto"
-            rules={[
-              {
-                required: true,
-                message: "Dato requerido",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="place"
-            label="Lugar del incidente"
-            rules={[
-              {
-                required: true,
-                message: "Dato requerido",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="description"
-            label="Descripción del incidente"
-            rules={[
-              {
-                required: true,
-                message: "Dato requerido",
-              },
-            ]}
-          >
-            <TextArea />
-          </Form.Item>
-
-          <Form.Item name="reportedTo" label="Reportado a">
-            <TextArea />
-          </Form.Item>
-
-          <Form.Item
-            name="image"
-            label="Agregar imagen"
+            name="attachments"
+            label="Materiales para reportar"
             valuePropName="fileList"
             getValueFromEvent={normFile}
           >
@@ -226,7 +182,7 @@ const NewIncidentPage: React.FC = () => {
               fileList={fileList}
               beforeUpload={onUpload}
             >
-              <AntButton icon={<UploadOutlined />}>Elegir imagen</AntButton>
+              <AntButton icon={<UploadOutlined />}>Elegir adjuntos</AntButton>
             </Upload>
             {hasUploadingFileListItem && <span />}
           </Form.Item>
