@@ -12,7 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import "antd/dist/antd.css";
 import NewsArticlePage from "./pages/NewsArticlePage";
 import IncidentsPage from "./pages/IncidentsPage";
-import NewIncidentPage from "./pages/NewIncidentPage";
+import NewIncidentPage from "./pages/NewIncidentPage/NewIncidentPage";
 import UsefulInformationPage from "./pages/UsefulInformationPage";
 import UsefulInfoDetailPage from "./pages/UsefulInfoDetailPage";
 import LoggedInRoute from "./components/LoggedInRoute";

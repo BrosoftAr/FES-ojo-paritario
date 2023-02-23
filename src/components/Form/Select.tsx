@@ -18,10 +18,10 @@ const requiredRules = [{ required: true, message: "Dato requerido" }];
 const FormSelect: React.FC<AntSelectProps & SelectProps> = ({
   label,
   name,
-  placeholder,
   isRequired = false,
   typeEnum,
   typeLabelEnum,
+  ...props
 }) => {
   return (
     <Form.Item
@@ -29,7 +29,7 @@ const FormSelect: React.FC<AntSelectProps & SelectProps> = ({
       label={label}
       rules={isRequired ? requiredRules : []}
     >
-    <Select placeholder={placeholder}>
+    <Select {...props}>
       {Object.values(typeEnum).map((type) => (
         <Select.Option key={type} value={type}>
           {typeLabelEnum[type]}

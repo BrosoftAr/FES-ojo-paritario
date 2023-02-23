@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { UsefulInfo } from "..//shared/UsefulInfo";
 import ApiEndpoints from "../shared/ApiEndpoints";
 import FetchService from "../shared/FetchService";
@@ -7,7 +7,7 @@ const useUsefulInfoDetail = (usefulInfoId: string) => {
   const [usefulInfo, setUsefulInfo] = useState<UsefulInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchUsefulInfo = async () => {
+  const fetchUsefulInfo = useCallback(async () => {
     try {
       setIsLoading(true);
       const { usefulInfo } = await FetchService.request(
@@ -22,11 +22,11 @@ const useUsefulInfoDetail = (usefulInfoId: string) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [usefulInfoId]);
 
   useEffect(() => {
     fetchUsefulInfo();
-  }, [usefulInfoId]);
+  }, [fetchUsefulInfo, usefulInfoId]);
 
   return { usefulInfo, isLoading };
 };

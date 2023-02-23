@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { NewsArticle } from "../shared/NewsArticle";
 import FetchService from "../shared/FetchService";
 import ApiEndpoints from "../shared/ApiEndpoints";
@@ -7,7 +7,7 @@ const useNewsArticles = ({ limit = 0 }: { limit?: number }) => {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchNewsArticles = async () => {
+  const fetchNewsArticles = useCallback(async () => {
     try {
       setIsLoading(true);
       const { news } = await FetchService.request(ApiEndpoints.NEWS_LIST, {
@@ -19,11 +19,11 @@ const useNewsArticles = ({ limit = 0 }: { limit?: number }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  },[limit]);
 
   useEffect(() => {
     fetchNewsArticles();
-  }, []);
+  }, [fetchNewsArticles]);
 
   return {
     newsArticles,

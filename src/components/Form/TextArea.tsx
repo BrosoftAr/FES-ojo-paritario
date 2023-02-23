@@ -1,5 +1,4 @@
 import React from 'react';
-import { InputProps as AntInputProps } from "antd";
 import { Form } from "antd";
 import TextArea from "antd/lib/input/TextArea"
 
@@ -11,11 +10,11 @@ interface TextAreaProps {
 
 const requiredRules = [{ required: true, message: "Dato requerido" }];
 
-const FormTextArea: React.FC<AntInputProps & TextAreaProps> = ({
+const FormTextArea: React.FC<TextAreaProps> = ({
   label,
   name,
-  placeholder,
   isRequired = false,
+  ...props
 }) => {
   return (
     <Form.Item
@@ -23,7 +22,7 @@ const FormTextArea: React.FC<AntInputProps & TextAreaProps> = ({
       label={label}
       rules={isRequired ? requiredRules : []}
     >
-      <TextArea placeholder={placeholder} />
+      <TextArea {...props} />
     </Form.Item>
   );
 }

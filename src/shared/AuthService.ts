@@ -8,14 +8,11 @@ class AuthService {
 
   static getCurrentRole() {
     const token = localStorage.getItem("token");
-    if (!token) {
-      return null;
-    }
+    if (!token) return null;
 
     const payload = jwt.decode(token);
-    if (!payload) {
-      return null;
-    }
+    if (!payload) return null;
+    
     const user = payload as User;
 
     return user.role;

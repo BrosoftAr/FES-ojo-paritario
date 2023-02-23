@@ -24,17 +24,18 @@ class FetchService {
           } else if (res.status === 401) {
             message.error("Necesitas loguearte para realizar esta acción");
             localStorage.removeItem("token");
-
             res.json().then((json) => {
               reject(json);
             });
+          } else if (res.status === 500) {
+            reject({ message: "Request failed" });
           } else {
             res.json().then((json) => {
               reject(json);
             });
           }
         })
-        .catch(() => {
+        .catch((e) => {
           reject({ message: "Request failed" });
         });
     });

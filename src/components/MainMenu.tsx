@@ -41,7 +41,6 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
   };
 
   const activeKey = getActiveKey();
-  console.log("activeKey", activeKey);
 
   return (
     <Container isVisible={isVisible}>

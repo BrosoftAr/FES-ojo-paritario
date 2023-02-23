@@ -1,8 +1,8 @@
 import React from 'react';
-import { InputProps as AntInputProps } from "antd";
+import { InputNumberProps as AntInputNumberProps } from "antd";
 import {
   Form,
-  Input,
+  InputNumber,
 } from "antd";
 
 interface InputProps {
@@ -13,7 +13,7 @@ interface InputProps {
 
 const requiredRules = [{ required: true, message: "Dato requerido" }];
 
-const FormInput: React.FC<AntInputProps & InputProps> = ({
+const FormInputNumber: React.FC<AntInputNumberProps & InputProps> = ({
   label,
   name,
   isRequired = false,
@@ -25,9 +25,9 @@ const FormInput: React.FC<AntInputProps & InputProps> = ({
       label={label}
       rules={isRequired ? requiredRules : []}
     >
-      <Input {...props} />
+      <InputNumber style={{ width: "100%"}} {...props } />
     </Form.Item>
   );
 }
 
-export default FormInput;
+export default FormInputNumber;
