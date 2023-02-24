@@ -35,6 +35,7 @@ interface FormValues extends IncidentForm {
 }
 
 const FormInitialValue = {
+  anonymous: false,
   contact: "",
   breach: "",
   description: "",

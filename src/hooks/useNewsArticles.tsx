@@ -3,7 +3,7 @@ import { NewsArticle } from "../shared/NewsArticle";
 import FetchService from "../shared/FetchService";
 import ApiEndpoints from "../shared/ApiEndpoints";
 
-const useNewsArticles = ({ scope, limit = 0 }: { scope: string, limit?: number }) => {
+const useNewsArticles = ({ scope='', limit = 0 }: { scope?: string, limit?: number }) => {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 

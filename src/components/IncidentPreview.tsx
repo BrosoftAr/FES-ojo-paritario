@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import moment from "moment";
@@ -27,7 +27,7 @@ const IncidentPreview: React.FC<IncidentPreviewProps> = ({ incident }) => {
     <Container>
       <Link href={incidentRoute} onClick={onClick}>
         <Info>
-          {/* <Title>Inc. {IncidentTypeLabelEnum[incident.situation]}</Title> */}
+          <Title>Incidente</Title>
           <Description>
             {moment(incident.createdAt).format("DD/MM/YYYY")}
           </Description>

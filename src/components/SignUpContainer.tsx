@@ -34,8 +34,8 @@ const Content = styled.div`
 `;
 
 const Logo = styled.img`
-  width: auto;
-  height: 114px;
+  width: 100%;
+  height: auto;
 `;
 
 export default SignUpContainer;

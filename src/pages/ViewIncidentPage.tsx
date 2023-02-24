@@ -106,6 +106,7 @@ const ViewIncidentsPage = () => {
                     <br />
                   </>
                 ))}
+                { !parsedIncident.attachments.length && '-'}
               </p>
             )}
           </div>

@@ -6,6 +6,7 @@ const RoutesEnum = {
   FORGOT_PASSWORD_EMAIL_SENT: "/forgot-password-email-sent",
   HOME: "/home",
   INTERNATIONAL_NEWS: "/international-news",
+  NEWS: "/news",
   NATIONAL_NEWS: "/national-news",
   NEWS_ARTICLE: "/news/:id",
   INCIDENTS: "/incidents",

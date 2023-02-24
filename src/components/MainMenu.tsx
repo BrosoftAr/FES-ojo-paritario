@@ -55,7 +55,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
         >
           Inicio
         </Menu.Item>
-        <Menu.SubMenu title="Noticias" icon={<MessageOutlined />}>
+        <Menu.SubMenu key={RoutesEnum.NEWS} title="Noticias" icon={<MessageOutlined />}>
           <Menu.Item key={RoutesEnum.NATIONAL_NEWS} onClick={() => goTo(RoutesEnum.NATIONAL_NEWS)}>
             Nacionales
           </Menu.Item>
