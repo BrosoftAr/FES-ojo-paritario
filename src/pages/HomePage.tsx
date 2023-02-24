@@ -12,6 +12,7 @@ import useUsefulInfo from "../hooks/useUsefulInfo";
 
 const HomePage: React.FC = () => {
   const { newsArticles, isLoading: isLoadingNews } = useNewsArticles({
+    scope: "national",
     limit: 3,
   });
 

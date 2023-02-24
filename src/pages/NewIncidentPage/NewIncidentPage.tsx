@@ -27,30 +27,11 @@ import FormInputNumber from "../../components/Form/InputNumber";
 import { Moment } from "moment";
 import AttachmentUpload from "./components/AttachmentUpload";
 import ExpirationDate from "./components/ExpirationDate";
+import { FileListItem, IncidentForm } from '../../shared/Incident';
 
-interface FormValues {
-  name: string;
-  anonymous: boolean;
-  email: string;
-  contact: string;
-  territory: string;
-  role: string;
-  number?: number;
-  votingList: string;
-  politicalParty: string;
-  breach: string;
-  description: string;
-  attachments: Array<FileListItem>;
+interface FormValues extends IncidentForm {
   appealExpirationCategory: string;
   appealExpirationDate: Moment;
-}
-
-interface FileListItem {
-  uid: string;
-  name: string;
-  status: "uploading" | "done";
-  url: string;
-  fileKey: string;
 }
 
 const FormInitialValue = {

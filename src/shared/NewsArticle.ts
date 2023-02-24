@@ -11,4 +11,5 @@ export type NewsArticle = {
     url: string;
   };
   createdAt: Date;
+  scope: string;
 };

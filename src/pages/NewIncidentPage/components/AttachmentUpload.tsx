@@ -8,14 +8,7 @@ import React from "react";
 import { UploadOutlined } from "@ant-design/icons";
 import FetchService from "../../../shared/FetchService";
 import ApiEndpoints from "../../../shared/ApiEndpoints";
-
-interface FileListItem {
-  uid: string;
-  name: string;
-  status: "uploading" | "done";
-  url: string;
-  fileKey: string;
-}
+import { FileListItem } from "../../../shared/Incident";
 
 interface AttachmentUploadProps {
   fileList: Array<FileListItem>;

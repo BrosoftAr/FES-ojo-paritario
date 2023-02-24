@@ -5,7 +5,6 @@ import {
   HomeOutlined,
   WarningOutlined,
   InfoCircleOutlined,
-  UserOutlined,
   MessageOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
@@ -56,13 +55,14 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
         >
           Inicio
         </Menu.Item>
-        <Menu.Item
-          key={RoutesEnum.NEWS}
-          icon={<MessageOutlined />}
-          onClick={() => goTo(RoutesEnum.NEWS)}
-        >
-          Noticias
-        </Menu.Item>
+        <Menu.SubMenu title="Noticias" icon={<MessageOutlined />}>
+          <Menu.Item key={RoutesEnum.NATIONAL_NEWS} onClick={() => goTo(RoutesEnum.NATIONAL_NEWS)}>
+            Nacionales
+          </Menu.Item>
+          <Menu.Item key={RoutesEnum.INTERNATIONAL_NEWS} onClick={() => goTo(RoutesEnum.INTERNATIONAL_NEWS)}>
+            Internacionales
+          </Menu.Item>
+        </Menu.SubMenu>
         <Menu.Item
           key={RoutesEnum.INCIDENTS}
           icon={<WarningOutlined />}
@@ -76,13 +76,6 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
           onClick={() => goTo(RoutesEnum.USEFUL_INFORMATION)}
         >
           Información Útil
-        </Menu.Item>
-        <Menu.Item
-          key={RoutesEnum.PROFILE}
-          icon={<UserOutlined />}
-          onClick={() => goTo(RoutesEnum.PROFILE)}
-        >
-          Perfil
         </Menu.Item>
         <Menu.Item
           key={"logout"}

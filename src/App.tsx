@@ -7,8 +7,8 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ForgotPasswordEmailSentPage from "./pages/ForgotPasswordEmailSentPage";
 import "./styles/App.scss";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import NewsPage from "./pages/NewsPage";
-import ProfilePage from "./pages/ProfilePage";
+import NationalNewsPage from "./pages/NationalNewsPage";
+import InternationalNewsPage from "./pages/InternationalNewsPage";
 import "antd/dist/antd.css";
 import NewsArticlePage from "./pages/NewsArticlePage";
 import IncidentsPage from "./pages/IncidentsPage";
@@ -42,19 +42,35 @@ function App() {
           path={RoutesEnum.FORGOT_PASSWORD_EMAIL_SENT}
           component={ForgotPasswordEmailSentPage}
         />
-        <Route exact path={RoutesEnum.ACTIVATION} component={ActivationPage} />
-        <Route exact path={RoutesEnum.RESET} component={ResetPage} />
-        <LoggedInRoute exact path={RoutesEnum.HOME} component={HomePage} />
-        <LoggedInRoute exact path={RoutesEnum.NEWS} component={NewsPage} />
+        <Route
+          exact
+          path={RoutesEnum.ACTIVATION}
+          component={ActivationPage}
+        />
+        <Route
+          exact
+          path={RoutesEnum.RESET}
+          component={ResetPage}
+        />
+        <LoggedInRoute 
+          exact
+          path={RoutesEnum.HOME}
+          component={HomePage}
+        />
+        <LoggedInRoute 
+          exact
+          path={RoutesEnum.NATIONAL_NEWS}
+          component={NationalNewsPage}
+        />
+        <LoggedInRoute 
+          exact
+          path={RoutesEnum.INTERNATIONAL_NEWS}
+          component={InternationalNewsPage}
+        />
         <LoggedInRoute
           exact
           path={RoutesEnum.NEWS_ARTICLE}
           component={NewsArticlePage}
-        />
-        <LoggedInRoute
-          exact
-          path={RoutesEnum.PROFILE}
-          component={ProfilePage}
         />
         <LoggedInRoute
           exact

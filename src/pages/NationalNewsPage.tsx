@@ -6,16 +6,13 @@ import PageContainer from "../components/PageContainer";
 import PageTitle from "../components/PageTitle";
 import useNewsArticles from "../hooks/useNewsArticles";
 
-const NewsPage: React.FC = () => {
-  const { newsArticles, isLoading } = useNewsArticles({});
-
-  console.log(newsArticles);
+const NationalNewsPage: React.FC = () => {
+  const { newsArticles, isLoading } = useNewsArticles({ scope:"national"});
 
   return (
     <PageContainer showHeader>
       <ContentContainer>
-        <PageTitle>Noticias</PageTitle>
-
+        <PageTitle>Noticias Nacionales</PageTitle>
         {!isLoading ? (
           <ul>
             {newsArticles.map((newsArticle) => (
@@ -31,4 +28,4 @@ const NewsPage: React.FC = () => {
     </PageContainer>
   );
 };
-export default NewsPage;
+export default NationalNewsPage;

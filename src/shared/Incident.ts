@@ -1,22 +1,36 @@
 import { MongoId } from "./MongoId";
 
+export interface FileListItem {
+  uid: string;
+  name: string;
+  status: "uploading" | "done";
+  url: string;
+  fileKey: string;
+  fileName: string;
+}
+
 export type IncidentStatus = "RECEIVED" | "IN_PROGRESS" | "RESOLVED";
 
-export type Incident = {
+export type IncidentForm = {
+  name: string;
+  anonymous: boolean;
+  email: string;
+  contact: string;
+  territory: string;
+  role: string;
+  number?: number;
+  votingList: string;
+  politicalParty: string;
+  breach: string;
+  description: string;
+  attachments: Array<FileListItem>;
+}
+
+export interface Incident extends IncidentForm {
   _id: MongoId;
   createdAt: Date;
-
-  situation: string;
-  role: string;
-  company: string;
-  place: string;
-  description: string;
-  reportedTo: string;
-  images: {
-    url: string;
-    fileName: string;
-  }[];
   status: IncidentStatus;
+  appealExpiration: string;
 };
 
 export const IncidentStatusEnum = {

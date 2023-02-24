@@ -1,10 +1,3 @@
-export const IncidentTypeEnum = {
-  RECIBO_DE_SUELDO: "RECIBO_DE_SUELDO",
-  ACOSO_LABORAL: "ACOSO_LABORAL",
-  DISCRIMINACION: "DISCRIMINACION",
-  QUITA_TAREAS: "QUITA_TAREAS",
-};
-
 export const TerritoryTypeEnum = {
   NACIONAL: "NACIONAL",
   PROVINCIAL: "PROVINCIAL",
@@ -12,22 +5,15 @@ export const TerritoryTypeEnum = {
 };
 
 export const ChargeTypeEnum = {
-  DIPUTADXS: "DIPUTADXS",
-  SENADORXS: "SENADORXS",
-  CONCEJALES: "CONCEJALES",
+  DIPUTADX: "DIPUTADX",
+  SENADORX: "SENADORX",
+  CONCEJAL: "CONCEJAL",
 };
 
 export const AppealExpirationTypeEnum = {
   VENCIDO: "VENCIDO",
   DESCONOCIDO: "DESCONOCIDO",
   FECHA: "FECHA",
-};
-
-export const IncidentTypeLabelEnum = {
-  [IncidentTypeEnum.RECIBO_DE_SUELDO]: "Recibo de sueldo",
-  [IncidentTypeEnum.ACOSO_LABORAL]: "Acoso laboral",
-  [IncidentTypeEnum.DISCRIMINACION]: "Discriminación",
-  [IncidentTypeEnum.QUITA_TAREAS]: "Quita tareas",
 };
 
 export const TerritoryTypeLabelEnum = {
@@ -37,9 +23,9 @@ export const TerritoryTypeLabelEnum = {
 };
 
 export const ChargeTypeLabelEnum = {
-  [ChargeTypeEnum.DIPUTADXS]: "Diputadxs",
-  [ChargeTypeEnum.SENADORXS]: "Senadorxs",
-  [ChargeTypeEnum.CONCEJALES]: "Concejales"
+  [ChargeTypeEnum.DIPUTADX]: "Diputadx",
+  [ChargeTypeEnum.SENADORX]: "Senadorx",
+  [ChargeTypeEnum.CONCEJAL]: "Concejal"
 };
 
 export const AppealExpirationTypeLabelEnum = {
