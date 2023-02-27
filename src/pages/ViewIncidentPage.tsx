@@ -14,17 +14,27 @@ import {
   AppealExpirationTypeLabelEnum
 } from "../shared/IncidentsTypes";
 import get from 'lodash/get';
+import styled from "styled-components";
 
+
+const Wrapper = styled.div`
+  margin-bottom: 12px;
+`;
+
+const Title = styled.span`
+  font-family: "Graphik";
+  font-weight: 700;
+`;
 interface ViewIncidentsPageRouteParams {
   id: string;
 }
 
 const Item = ({title, value}) => {
   return (
-    <p>
-      <strong>{title}</strong>
+    <Wrapper>
+      <Title>{title}</Title>
       <br /> {value}
-    </p>
+    </Wrapper>
   )
 }
 
@@ -90,8 +100,8 @@ const ViewIncidentsPage = () => {
             <Item title="Comentarios adicionales" value={parsedIncident.description} />
 
             {parsedIncident.attachments && (
-              <p>
-                <strong>Archivos adjuntos:</strong>
+              <Wrapper>
+                <Title>Archivos adjuntos:</Title>
                 <br />
                 {parsedIncident.attachments.map(({ fileName, url }) => (
                   <>
@@ -107,7 +117,7 @@ const ViewIncidentsPage = () => {
                   </>
                 ))}
                 { !parsedIncident.attachments.length && '-'}
-              </p>
+              </Wrapper>
             )}
           </div>
         ) : (
