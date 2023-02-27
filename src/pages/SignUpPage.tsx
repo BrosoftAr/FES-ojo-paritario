@@ -29,11 +29,10 @@ const SignUpPage: React.FC = () => {
         body: JSON.stringify(formValues),
       });
       AuthService.saveAuthToken(token);
-
       closeLoading();
       history.push(RoutesEnum.SIGNUP_EMAIL_SENT);
     } catch (e) {
-      console.log(e);
+      message.error("Ha ocurrido un error al crear cuenta");
     } finally {
       setIsSubmitting(false);
       closeLoading();
@@ -58,7 +57,7 @@ const SignUpPage: React.FC = () => {
               <Input placeholder="Contraseña" type="password" />
             </Form.Item>
             <Button submit disabled={isSubmitting}>
-              Afiliarme &gt;
+              Crear cuenta &gt;
             </Button>
           </Form>
         </ContainerDiv>
