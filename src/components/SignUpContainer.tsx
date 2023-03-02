@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import LogoSrc from "../assets/img/logo.png";
+import LogoSrc from "../assets/img/loginLogo.svg";
 
 const SignUpContainer: React.FC = ({ children }) => {
   return (
@@ -34,8 +34,8 @@ const Content = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 `;
 
 export default SignUpContainer;
