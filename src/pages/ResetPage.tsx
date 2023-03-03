@@ -1,5 +1,5 @@
-import { Button, Input, message, Spin, Form } from "antd";
-import React, { useEffect, useState } from "react";
+import { Button, Input, message, Form } from "antd";
+import React, { useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import PageTitle from "../components/PageTitle";
@@ -14,8 +14,6 @@ interface ResetPageRouteParams {
 }
 
 const ResetPage = () => {
-  const [errorMessage, setErrorMessage] = useState("");
-
   const history = useHistory();
   const match = useRouteMatch<ResetPageRouteParams>();
   const activationToken = match.params.id;
