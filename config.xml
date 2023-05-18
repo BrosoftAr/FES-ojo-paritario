@@ -1,11 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ojoparitario.test" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ojoparitario.test" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ojo Paritario</name>
     <description>Plataforma open-source para sindicatos</description>
     <author email="" href="">
         OJO PARITARIO
     </author>
-    <icon src="src/assets/img/logo.png" />
+    <icon src="src/assets/img/appicon.png" platform="android" />
+    <icon background="src/assets/img/appicon_background.png" density="ldpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
+    <icon background="src/assets/img/appicon_background.png" density="mdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
+    <icon background="src/assets/img/appicon_background.png" density="hdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
+    <icon background="src/assets/img/appicon_background.png" density="xhdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
+    <icon background="src/assets/img/appicon_background.png" density="xxhdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
+    <icon background="src/assets/img/appicon_background.png" density="xxxhdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
