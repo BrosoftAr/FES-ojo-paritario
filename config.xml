@@ -5,13 +5,19 @@
     <author email="" href="">
         OJO PARITARIO
     </author>
-    <icon src="src/assets/img/appicon.png" platform="android" />
-    <icon background="src/assets/img/appicon_background.png" density="ldpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
-    <icon background="src/assets/img/appicon_background.png" density="mdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
-    <icon background="src/assets/img/appicon_background.png" density="hdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
-    <icon background="src/assets/img/appicon_background.png" density="xhdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
-    <icon background="src/assets/img/appicon_background.png" density="xxhdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
-    <icon background="src/assets/img/appicon_background.png" density="xxxhdpi" foreground="src/assets/img/appicon_foreground.png" platform="android" />
+    <icon src="src/assets/img/appicon.png" />
+    <platform name="android">
+        <resource-file src="google-services.json" target="app/google-services.json" />
+        <icon background="src/assets/img/appicon_background.png" density="ldpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="mdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="hdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="xhdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="xxhdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="xxxhdpi" foreground="src/assets/img/appicon_foreground.png" />
+    </platform>
+    <platform name="ios">
+        <resource-file src="GoogleService-Info.plist" />
+    </platform>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
