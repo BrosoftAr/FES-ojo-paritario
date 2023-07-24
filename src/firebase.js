@@ -44,6 +44,13 @@ export const onMessageListener = (action) => {
     }
   };
 
+export const suscribeToTopic = (topic) => {
+    if (window.cordova && window.cordova.plugins){
+      const { subscribe } = window.cordova.plugins.firebase.messaging;
+      subscribe(topic);
+    }
+  };
+
 export const onBackgroundMessageListener = (action) => {
     if (window.cordova && window.cordova.plugins){
       const { onBackgroundMessage } = window.cordova.plugins.firebase.messaging;

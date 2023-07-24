@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import toast, { Toaster } from 'react-hot-toast';
-import { requestPermission, requestToken, onMessageListener, onBackgroundMessageListener } from './firebase';
+import { requestPermission, requestToken, onMessageListener, onBackgroundMessageListener, suscribeToTopic } from '../firebase';
+import { APP_NAME } from '../constants';
 
 const Notification = () => {
   const [notification, setNotification] = useState({title: '', body: ''});
@@ -9,6 +10,7 @@ const Notification = () => {
   useEffect(() => {
     requestPermission();
     requestToken();
+    suscribeToTopic(`${APP_NAME}-news`);
     onMessageListener((payload) => {
       console.log("New foreground FCM message: ", payload);
       setNotification({title: payload.gcm.title, body: payload.gcm.body})
@@ -27,7 +29,7 @@ const Notification = () => {
 
   useEffect(() => {
     if (notification?.title ) notify()
-  }, [notification])
+  }, [notification, notify])
 
   return (
      <Toaster/>

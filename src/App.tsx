@@ -20,10 +20,11 @@ import ViewIncidentsPage from "./pages/ViewIncidentPage";
 import SignUpEmailSentPage from "./pages/SignUpEmailSentPage";
 import ActivationPage from "./pages/ActivationPage";
 import ResetPage from "./pages/ResetPage";
-import Notification from "./Notifications";
+import useNotifications from "./hooks/useNotifications";
 
 function App() {
-  return (
+  useNotifications({ topics: ['new-added'] });
+    return (
     <>
       <Router>
         <Switch>
@@ -101,7 +102,6 @@ function App() {
           />
         </Switch>
       </Router>
-      <Notification />
     </>
   );
 }
