@@ -7,12 +7,13 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='./www' react-scripts build",
+    "build": "react-scripts build",
+    "build:www": "BUILD_PATH='./www' react-scripts build",
     "eject": "react-scripts eject",
-    "build:android": "npm run build && cordova build android",
-    "build:ios": "npm run build && cordova build ios",
-    "emulate:android": "npm run build && cordova emulate android",
-    "emulate:ios": "npm run build && cordova emulate ios"
+    "build:android": "npm run build:www && cordova build android",
+    "build:ios": "npm run build:www && cordova build ios",
+    "emulate:android": "npm run build:www && cordova emulate android",
+    "emulate:ios": "npm run build:www && cordova emulate ios"
   },
   "homepage": ".",
   "eslintConfig": {
