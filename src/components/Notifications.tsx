@@ -10,7 +10,7 @@ const Notification = () => {
   useEffect(() => {
     requestPermission();
     requestToken();
-    suscribeToTopic(`${APP_NAME}-news`);
+    suscribeToTopic(`${APP_NAME}-new-added`);
     onMessageListener((payload) => {
       console.log("New foreground FCM message: ", payload);
       setNotification({title: payload.gcm.title, body: payload.gcm.body})
