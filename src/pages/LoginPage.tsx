@@ -10,7 +10,6 @@ import RoutesEnum from "../shared/RoutesEnum";
 import FetchService from "../shared/FetchService";
 import ApiEndpoints from "../shared/ApiEndpoints";
 import AuthService from "../shared/AuthService";
-import colors from "../styles/colors";
 
 interface FormValues {
   email: string;
@@ -83,7 +82,7 @@ const PageLink = styled.a`
   text-align: right;
   margin-top: -15px;
   margin-bottom: 16px;
-  color: ${colors.primary};
+  color: #6d6ae7;
 `;
 
 export default LoginPage;

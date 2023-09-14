@@ -11,6 +11,7 @@ const ApiEndpoints = {
   USEFUL_INFO_DETAIL: "useful-info/detail",
   GET_IMAGE_UPLOAD_TOKEN: "incidents/getImageUploadToken",
   USERS_MY_DETAILS: "users/myDetails",
+  USERS_UPDATE_PROFILE: "users/updateProfile",
   USERS_FORGOT_PASSWORD: "users/forgotPassword",
   USERS_RESET_PASSWORD: "auth/resetPassword",
 };

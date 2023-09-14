@@ -5,12 +5,12 @@ import {
   HomeOutlined,
   WarningOutlined,
   InfoCircleOutlined,
+  UserOutlined,
   MessageOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import RoutesEnum from "../shared/RoutesEnum";
-import colors from "../styles/colors";
 
 interface MainMenuProps {
   isVisible: boolean;
@@ -40,6 +40,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
   };
 
   const activeKey = getActiveKey();
+  console.log("activeKey", activeKey);
 
   return (
     <Container isVisible={isVisible}>
@@ -55,14 +56,13 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
         >
           Inicio
         </Menu.Item>
-        <Menu.SubMenu key={RoutesEnum.NEWS} title="Noticias" icon={<MessageOutlined />}>
-          <Menu.Item key={RoutesEnum.NATIONAL_NEWS} onClick={() => goTo(RoutesEnum.NATIONAL_NEWS)}>
-            Nacionales
-          </Menu.Item>
-          <Menu.Item key={RoutesEnum.INTERNATIONAL_NEWS} onClick={() => goTo(RoutesEnum.INTERNATIONAL_NEWS)}>
-            Internacionales
-          </Menu.Item>
-        </Menu.SubMenu>
+        <Menu.Item
+          key={RoutesEnum.NEWS}
+          icon={<MessageOutlined />}
+          onClick={() => goTo(RoutesEnum.NEWS)}
+        >
+          Noticias
+        </Menu.Item>
         <Menu.Item
           key={RoutesEnum.INCIDENTS}
           icon={<WarningOutlined />}
@@ -76,6 +76,13 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
           onClick={() => goTo(RoutesEnum.USEFUL_INFORMATION)}
         >
           Información Útil
+        </Menu.Item>
+        <Menu.Item
+          key={RoutesEnum.PROFILE}
+          icon={<UserOutlined />}
+          onClick={() => goTo(RoutesEnum.PROFILE)}
+        >
+          Perfil
         </Menu.Item>
         <Menu.Item
           key={"logout"}
@@ -99,7 +106,7 @@ const Container = styled.div<{ isVisible: boolean }>`
   transform: translateX(${(props) => (props.isVisible ? "0" : "-100%")});
   transition: transform 0.5s ease 0s;
   min-height: 100vh;
-  background: ${colors.primary};
+  background: #6d6ae7;
 `;
 
 const StyledMenu = styled(Menu)`

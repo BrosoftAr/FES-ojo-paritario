@@ -12,8 +12,13 @@ import ApiEndpoints from "../shared/ApiEndpoints";
 import AuthService from "../shared/AuthService";
 
 interface FormValues {
+  name: string;
+  lastName: string;
   email: string;
   password: string;
+  phone: string;
+  city: string;
+  affiliateNumber?: number;
 }
 
 const SignUpPage: React.FC = () => {
@@ -29,10 +34,11 @@ const SignUpPage: React.FC = () => {
         body: JSON.stringify(formValues),
       });
       AuthService.saveAuthToken(token);
+
       closeLoading();
       history.push(RoutesEnum.SIGNUP_EMAIL_SENT);
     } catch (e) {
-      message.error("Ha ocurrido un error al crear cuenta");
+      console.log(e);
     } finally {
       setIsSubmitting(false);
       closeLoading();
@@ -43,21 +49,48 @@ const SignUpPage: React.FC = () => {
     <PageContainer showBackButton>
       <SignUpContainer>
         <ContainerDiv>
-          <Form onFinish={submit}>
+          <Form onFinish={submit} className="form--small">
+            <Form.Item
+              name="name"
+              rules={[{ required: true, message: "Ingresa tu nombre" }]}
+            >
+              <Input small placeholder="Nombre" />
+            </Form.Item>
+            <Form.Item
+              name="lastName"
+              rules={[{ required: true, message: "Ingresa tu apellido" }]}
+            >
+              <Input small placeholder="Apellido" />
+            </Form.Item>
             <Form.Item
               name="email"
               rules={[{ required: true, message: "Ingresa tu email" }]}
             >
-              <Input placeholder="Email" type="email" />
+              <Input small placeholder="Email" type="email" />
             </Form.Item>
             <Form.Item
               name="password"
               rules={[{ required: true, message: "Ingresa tu contraseña" }]}
             >
-              <Input placeholder="Contraseña" type="password" />
+              <Input small placeholder="Contraseña" type="password" />
+            </Form.Item>
+            <Form.Item
+              name="phone"
+              rules={[{ required: true, message: "Ingrese teléfono" }]}
+            >
+              <Input small placeholder="Teléfono de contacto" type="number" />
+            </Form.Item>
+            <Form.Item
+              name="city"
+              rules={[{ required: true, message: "Ingrese ciudad" }]}
+            >
+              <Input small placeholder="Ciudad" />
+            </Form.Item>
+            <Form.Item name="affiliateNumber">
+              <Input small placeholder="Nro Afiliado (si tienes uno)" />
             </Form.Item>
             <Button submit disabled={isSubmitting}>
-              Crear cuenta &gt;
+              Afiliarme &gt;
             </Button>
           </Form>
         </ContainerDiv>
@@ -69,5 +102,9 @@ const SignUpPage: React.FC = () => {
 const ContainerDiv = styled.div`
   width: 100%;
 `;
+
+const BottomLinks = styled.div``;
+
+const PageLink = styled.a``;
 
 export default SignUpPage;

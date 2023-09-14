@@ -1,10 +1,10 @@
-import React from 'react';
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import moment from "moment";
 import { Incident } from "../shared/Incident";
 import RoutesEnum from "../shared/RoutesEnum";
 import Button from "./Button";
+import { IncidentTypeLabelEnum } from "../shared/IncidentsTypes";
 
 interface IncidentPreviewProps {
   incident: Incident;
@@ -27,9 +27,11 @@ const IncidentPreview: React.FC<IncidentPreviewProps> = ({ incident }) => {
     <Container>
       <Link href={incidentRoute} onClick={onClick}>
         <Info>
-          <Title>Incidente</Title>
+          <Title>Inc. {IncidentTypeLabelEnum[incident.situation]}</Title>
           <Description>
             {moment(incident.createdAt).format("DD/MM/YYYY")}
+            <br />
+            {/* {incident.situation} */}
           </Description>
         </Info>
         <Actions>
@@ -57,15 +59,15 @@ const Info = styled.div``;
 
 const Title = styled.h3`
   font-size: 17px;
-  font-family: "Graphik";
   font-weight: 500;
+  font-family: Roboto;
   margin-bottom: 2px;
 `;
 
 const Description = styled.p`
   font-size: 14px;
-  font-family: "Graphik";
   font-weight: 400;
+  font-family: Roboto;
   margin-bottom: 0;
   color: #7e7e7e;
 `;

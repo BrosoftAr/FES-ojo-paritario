@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components/macro";
 import MainMenu from "./MainMenu";
-import { LeftOutlined } from "@ant-design/icons";
+import { MenuOutlined, LeftOutlined } from "@ant-design/icons";
 
-import LogoSrc from "../assets/img/logo.png";
+import LogoSrc from "../assets/img/logo-horizontal.png";
 import MenuIconSrc from "../assets/icons/menu-icon.png";
 
 interface PageContainerProps {

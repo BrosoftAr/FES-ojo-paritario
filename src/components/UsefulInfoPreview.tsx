@@ -48,16 +48,16 @@ const Info = styled.div``;
 
 const Title = styled.h3`
   font-size: 17px;
-  font-family: "Graphik";
   font-weight: 500;
+  font-family: Roboto;
   margin-bottom: 2px;
   margin-top: 0;
 `;
 
 const Description = styled.p`
   font-size: 14px;
-  font-family: "Graphik";
   font-weight: 400;
+  font-family: Roboto;
   margin-bottom: 0;
   color: #7e7e7e;
 `;

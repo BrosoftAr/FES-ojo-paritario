@@ -12,8 +12,8 @@ const PageTitle: React.FC<PageTitleProps> = ({
 };
 const Title = styled.h1<{ noMargin: boolean }>`
   font-size: 18px;
-  font-family: "Graphik";
   font-weight: 700;
+  font-family: Roboto;
   margin-bottom: ${({ noMargin }) => (noMargin ? "0" : "10px")};
 `;
 export default PageTitle;

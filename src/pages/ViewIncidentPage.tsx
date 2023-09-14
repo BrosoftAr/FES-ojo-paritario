@@ -8,34 +8,10 @@ import PageTitle from "../components/PageTitle";
 import ApiEndpoints from "../shared/ApiEndpoints";
 import FetchService from "../shared/FetchService";
 import { Incident, IncidentStatusLabel } from "../shared/Incident";
-import { 
-  TerritoryTypeLabelEnum,
-  ChargeTypeLabelEnum,
-  AppealExpirationTypeLabelEnum
-} from "../shared/IncidentsTypes";
-import get from 'lodash/get';
-import styled from "styled-components";
+import { IncidentTypeLabelEnum } from "../shared/IncidentsTypes";
 
-
-const Wrapper = styled.div`
-  margin-bottom: 12px;
-`;
-
-const Title = styled.span`
-  font-family: "Graphik";
-  font-weight: 700;
-`;
 interface ViewIncidentsPageRouteParams {
   id: string;
-}
-
-const Item = ({title, value}) => {
-  return (
-    <Wrapper>
-      <Title>{title}</Title>
-      <br /> {value}
-    </Wrapper>
-  )
 }
 
 const ViewIncidentsPage = () => {
@@ -44,24 +20,6 @@ const ViewIncidentsPage = () => {
 
   const [incident, setIncident] = useState<Incident>();
   const [isLoading, setIsLoading] = useState(true);
-
-  const parsedIncident = {
-    createdAt: moment(get(incident, 'createdAt', '')).format("DD/MM/YYYY") || '-',
-    status: IncidentStatusLabel[get(incident, 'status', '-')] || '-',
-    name: get(incident, 'name', '-'),
-    anonymous: get(incident, 'anonymous', false) ? 'Sí' : 'No',
-    email: get(incident, 'email', '-'),
-    contact: get(incident, 'contact', '-'),
-    territory: TerritoryTypeLabelEnum[get(incident, 'territory', '-')] || '-',
-    role: ChargeTypeLabelEnum[get(incident, 'role', '-')] || '-',
-    number: get(incident, 'number', '-'),
-    votingList: get(incident, 'votingList', '-'),
-    politicalParty: get(incident, 'politicalParty', '-'),
-    appealExpiration: AppealExpirationTypeLabelEnum[get(incident, 'appealExpiration', '-')] || incident?.appealExpiration || '-',
-    breach: get(incident, 'breach', '-'),
-    description: get(incident, 'description', '-'),
-    attachments: get(incident, 'attachments', []),
-  }
 
   useEffect(() => {
     const fetchIncident = async () => {
@@ -84,26 +42,40 @@ const ViewIncidentsPage = () => {
         <PageTitle>Detalle de Incidente</PageTitle>
         {!isLoading ? (
           <div>
-            <Item title="Fecha de carga:" value={parsedIncident.createdAt} />
-            <Item title="Estado:" value={parsedIncident.status} />
-            <Item title="Nombre:" value={parsedIncident.name} />
-            <Item title="Quiero anonimato para reportar:" value={parsedIncident.anonymous} />
-            <Item title="Email:" value={parsedIncident.email} />
-            <Item title="Otras forma de contacto:" value={parsedIncident.contact} />
-            <Item title="Territorio:" value={parsedIncident.territory} />
-            <Item title="Cargos:" value={parsedIncident.role} />
-            <Item title="Nº:" value={parsedIncident.number} />
-            <Item title="Nombre de Lista:" value={parsedIncident.votingList} />
-            <Item title="Partido u Alianza:" value={parsedIncident.politicalParty} />
-            <Item title="Plazo de impugnación:" value={parsedIncident.appealExpiration} />
-            <Item title="¿Qué no está cumpliendo?:" value={parsedIncident.breach}  />
-            <Item title="Comentarios adicionales" value={parsedIncident.description} />
+            <p>
+              <strong>Fecha de carga:</strong>
+              <br /> {moment(incident.createdAt).format("DD/MM/YYYY")}
+            </p>
+            <p>
+              <strong>Estado:</strong>
+              <br /> {IncidentStatusLabel[incident.status]}
+            </p>
+            <p>
+              <strong>Situación:</strong>
+              <br /> {IncidentTypeLabelEnum[incident.situation]}
+            </p>
+            <p>
+              <strong>Puesto:</strong>
+              <br /> {incident.role}
+            </p>
+            <p>
+              <strong>Lugar:</strong>
+              <br /> {incident.place}
+            </p>
+            <p>
+              <strong>Descripción:</strong>
+              <br /> {incident.description}
+            </p>
+            <p>
+              <strong>Reportado a:</strong>
+              <br /> {incident.reportedTo ? incident.reportedTo : "-"}
+            </p>
 
-            {parsedIncident.attachments && (
-              <Wrapper>
-                <Title>Archivos adjuntos:</Title>
+            {incident.images && (
+              <p>
+                <strong>Archivos adjuntos:</strong>
                 <br />
-                {parsedIncident.attachments.map(({ fileName, url }) => (
+                {incident.images.map(({ fileName, url }) => (
                   <>
                     <a
                       href={url}
@@ -116,8 +88,7 @@ const ViewIncidentsPage = () => {
                     <br />
                   </>
                 ))}
-                { !parsedIncident.attachments.length && '-'}
-              </Wrapper>
+              </p>
             )}
           </div>
         ) : (

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import { NewsArticle } from "../shared/NewsArticle";
@@ -66,15 +65,15 @@ const Info = styled.div<{ featured: boolean }>`
 
 const Title = styled.h3`
   font-size: 17px;
-  font-family: "Graphik";
   font-weight: 500;
+  font-family: Roboto;
   margin-bottom: 2px;
 `;
 
 const Description = styled.p`
   font-size: 14px;
-  font-family: "Graphik";
   font-weight: 400;
+  font-family: Roboto;
   margin-bottom: 0;
   color: #7e7e7e;
 `;

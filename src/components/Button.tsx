@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import colors from "../styles/colors";
 
 interface ButtonProps {
   disabled?: boolean;
@@ -45,13 +44,13 @@ interface StyledButtonProps {
 const StyledButton = styled.button<StyledButtonProps>`
   display: block;
   width: 100%;
-  font-family: "Graphik";
+  font-family: "Roboto";
   font-weight: 700;
   color: ${({ light }) => (light ? "#000" : "#fff")};
   background-color: ${({ light, disabled }) => {
     if (disabled) return "#ccc";
     if (light) return "#fff";
-    return colors.primary;
+    return "#6d6ae7";
   }};
   border: 1px solid #e9e9e9;
   border-radius: 13px;

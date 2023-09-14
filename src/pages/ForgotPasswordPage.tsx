@@ -48,7 +48,7 @@ const ForgotPasswordPage: React.FC = () => {
             </Form.Item>
 
             <Button submit loading={isSubmitting}>
-              Resetear Contraseña &gt;
+              Resetear Constraseña &gt;
             </Button>
           </Form>
         </ContainerDiv>

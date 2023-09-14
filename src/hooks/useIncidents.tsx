@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import ApiEndpoints from "../shared/ApiEndpoints";
 import FetchService from "../shared/FetchService";
 import { Incident } from "../shared/Incident";
@@ -7,7 +7,7 @@ const useIncidents = ({ limit = 0 }: { limit?: number | null }) => {
   const [incidents, setIncidents] = useState<Incident[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchIncidents = useCallback(async () => {
+  const fetchIncidents = async () => {
     try {
       setIsLoading(true);
       const { incidents } = await FetchService.request(
@@ -20,11 +20,11 @@ const useIncidents = ({ limit = 0 }: { limit?: number | null }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [limit]);
+  };
 
   useEffect(() => {
     fetchIncidents();
-  }, [fetchIncidents]);
+  }, []);
 
   return {
     incidents,
