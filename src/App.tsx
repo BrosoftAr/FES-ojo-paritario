@@ -24,6 +24,10 @@ import useNotifications from "./hooks/useNotifications";
 
 function App() {
   useNotifications({ topics: ['new-added'] });
+  const environment = process.env.ENVIRONMENT_TYPE;
+  const appName = process.env.APP_NAME;
+  console.log('environment', environment);
+  console.log('appName', appName);
     return (
     <>
       <Router>

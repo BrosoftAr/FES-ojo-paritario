@@ -47,8 +47,11 @@ export const onMessageListener = (action) => {
 export const suscribeToTopic = (topic) => {
     if (window.cordova && window.cordova.plugins){
       const { subscribe } = window.cordova.plugins.firebase.messaging;
-      console.log('suscribing', topic);
-      subscribe(topic);
+      const environment = process.env.ENVIRONMENT_TYPE;
+      const appName = process.env.APP_NAME;
+      const parsedTopic = `${environment === 'production' ? '' : `development-`}${appName}-${topic}`;
+      console.log('suscribing', parsedTopic);
+      subscribe(parsedTopic);
     }
   };
 
