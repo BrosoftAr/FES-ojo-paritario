@@ -23,12 +23,9 @@ import ResetPage from "./pages/ResetPage";
 import useNotifications from "./hooks/useNotifications";
 
 function App() {
-  useNotifications({ topics: ['new-added'] });
-  const environment = process.env.ENVIRONMENT_TYPE;
-  const appName = process.env.APP_NAME;
-  console.log('environment', environment);
-  console.log('appName', appName);
-    return (
+  useNotifications({ topics: ["new-added"] });
+
+  return (
     <>
       <Router>
         <Switch>
@@ -54,22 +51,14 @@ function App() {
             path={RoutesEnum.ACTIVATION}
             component={ActivationPage}
           />
-          <Route
-            exact
-            path={RoutesEnum.RESET}
-            component={ResetPage}
-          />
-          <LoggedInRoute 
-            exact
-            path={RoutesEnum.HOME}
-            component={HomePage}
-          />
-          <LoggedInRoute 
+          <Route exact path={RoutesEnum.RESET} component={ResetPage} />
+          <LoggedInRoute exact path={RoutesEnum.HOME} component={HomePage} />
+          <LoggedInRoute
             exact
             path={RoutesEnum.NATIONAL_NEWS}
             component={NationalNewsPage}
           />
-          <LoggedInRoute 
+          <LoggedInRoute
             exact
             path={RoutesEnum.INTERNATIONAL_NEWS}
             component={InternationalNewsPage}
