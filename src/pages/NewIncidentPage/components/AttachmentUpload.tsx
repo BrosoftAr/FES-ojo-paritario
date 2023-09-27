@@ -73,6 +73,10 @@ const AttachmentUpload: React.FC<AttachmentUploadProps> = ({fileList, setFileLis
     return false;
   };
 
+  const onRemove = (file) => {
+    setFileList(fileList.filter((item) => item.fileKey !== file.fileKey));
+  }
+
   const hasUploadingFileListItem = !!fileList.find(
     (fileListItem) => fileListItem.status === "uploading"
   );
@@ -88,6 +92,7 @@ const AttachmentUpload: React.FC<AttachmentUploadProps> = ({fileList, setFileLis
         listType="picture"
         fileList={fileList}
         beforeUpload={onUpload}
+        onRemove={onRemove}
       >
         <AntButton icon={<UploadOutlined />} children="Elegir adjuntos" />
       </Upload>
