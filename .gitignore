@@ -33,4 +33,4 @@ yarn-error.log*
 
 google-services.json
 GoogleService-Info.plist
-build_config.json
+build.json
