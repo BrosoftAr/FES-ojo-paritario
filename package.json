@@ -13,7 +13,7 @@
     "build:dev:www": "BUILD_PATH='./www' npm run build:dev",
     "build:prod:www": "BUILD_PATH='./www' npm run build:prod",
     "build:android:dev": "npm run build:dev:www && cordova build android",
-    "build:android:prod": "npm run build:prod:www && cordova build android",
+    "build:android:prod": "npm run build:prod:www & cordova build android --release --buildConfig",
     "build:ios:dev": "npm run build:dev:www && cordova build ios",
     "build:ios:prod": "npm run build:prod:www && cordova build ios",
     "emulate:android:dev": "npm run build:dev:www && cordova emulate android",
