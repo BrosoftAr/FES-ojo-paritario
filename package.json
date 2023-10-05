@@ -6,10 +6,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:www": "BUILD_PATH='./www' react-scripts build",
-    "eject": "react-scripts eject"
+    "start:dev": "env-cmd -f ./.env.dev react-scripts start",
+    "start:prod": "env-cmd -f ./.env.prod react-scripts start",
+    "build:dev": "env-cmd -f ./.env.dev react-scripts build",
+    "build:prod": "env-cmd -f ./.env.prod react-scripts build",
+    "build:dev:www": "BUILD_PATH='./www' npm run build:dev",
+    "build:prod:www": "BUILD_PATH='./www' npm run build:prod",
+    "build:android:dev": "npm run build:dev:www && cordova build android",
+    "build:android:prod": "npm run build:prod:www && cordova build android --release --buildConfig",
+    "build:ios:dev": "npm run build:dev:www && cordova build ios",
+    "build:ios:prod": "npm run build:prod:www && cordova build ios",
+    "emulate:android:dev": "npm run build:dev:www && cordova emulate android",
+    "emulate:android:prod": "npm run build:prod:www && cordova emulate android",
+    "emulate:ios:dev": "npm run build:dev:www && cordova emulate ios",
+    "emulate:ios:prod": "npm run build:prod:www && cordova emulate ios"
   },
   "homepage": ".",
   "eslintConfig": {
@@ -34,18 +44,27 @@
   ],
   "cordova": {
     "platforms": [
+      "ios",
       "android"
-    ]
+    ],
+    "plugins": {
+      "cordova-plugin-firebase-messaging": {
+        "ANDROID_FIREBASE_BOM_VERSION": "30.3.1"
+      }
+    }
   },
   "dependencies": {
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "antd": "^4.16.13",
+    "env-cmd": "^10.1.0",
+    "firebase": "^10.0.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.1",
@@ -57,7 +76,10 @@
     "@types/react-router-dom": "^5.3.1",
     "@types/styled-components": "^5.1.13",
     "babel-plugin-styled-components": "^1.13.2",
-    "cordova-android": "^11.0.0",
+    "cordova-android": "^12.0.0",
+    "cordova-ios": "^7.0.0",
+    "cordova-plugin-firebase-messaging": "^7.0.4",
+    "cordova-support-android-plugin": "~2.0.4",
     "sass": "^1.38.2"
   }
 }
