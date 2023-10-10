@@ -7,6 +7,7 @@ import {
   InfoCircleOutlined,
   MessageOutlined,
   LogoutOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import RoutesEnum from "../shared/RoutesEnum";
@@ -89,7 +90,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
         </Menu.Item>
         <Menu.Item
           key={"profile"}
-          icon={<InfoCircleOutlined />}
+          icon={<UserOutlined />}
           onClick={() => goTo(RoutesEnum.PROFILE)}
         >
           Perfil
