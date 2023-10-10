@@ -96,9 +96,6 @@ const ProfilePage: React.FC = () => {
           >
             <Input small placeholder="Email" type="email" disabled />
           </Form.Item>
-          <Button submit disabled loading={isSending}>
-            Guardar
-          </Button>
           <Button
             style={{ background: "#FF4141", marginTop: 15 }}
             onClick={() => showDeleteConfirm()}
