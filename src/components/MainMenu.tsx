@@ -55,11 +55,21 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
         >
           Inicio
         </Menu.Item>
-        <Menu.SubMenu key={RoutesEnum.NEWS} title="Noticias" icon={<MessageOutlined />}>
-          <Menu.Item key={RoutesEnum.NATIONAL_NEWS} onClick={() => goTo(RoutesEnum.NATIONAL_NEWS)}>
+        <Menu.SubMenu
+          key={RoutesEnum.NEWS}
+          title="Noticias"
+          icon={<MessageOutlined />}
+        >
+          <Menu.Item
+            key={RoutesEnum.NATIONAL_NEWS}
+            onClick={() => goTo(RoutesEnum.NATIONAL_NEWS)}
+          >
             Nacionales
           </Menu.Item>
-          <Menu.Item key={RoutesEnum.INTERNATIONAL_NEWS} onClick={() => goTo(RoutesEnum.INTERNATIONAL_NEWS)}>
+          <Menu.Item
+            key={RoutesEnum.INTERNATIONAL_NEWS}
+            onClick={() => goTo(RoutesEnum.INTERNATIONAL_NEWS)}
+          >
             Internacionales
           </Menu.Item>
         </Menu.SubMenu>
@@ -76,6 +86,13 @@ const MainMenu: React.FC<MainMenuProps> = ({ isVisible }) => {
           onClick={() => goTo(RoutesEnum.USEFUL_INFORMATION)}
         >
           Información Útil
+        </Menu.Item>
+        <Menu.Item
+          key={"profile"}
+          icon={<InfoCircleOutlined />}
+          onClick={() => goTo(RoutesEnum.PROFILE)}
+        >
+          Perfil
         </Menu.Item>
         <Menu.Item
           key={"logout"}

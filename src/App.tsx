@@ -21,6 +21,7 @@ import SignUpEmailSentPage from "./pages/SignUpEmailSentPage";
 import ActivationPage from "./pages/ActivationPage";
 import ResetPage from "./pages/ResetPage";
 import useNotifications from "./hooks/useNotifications";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   useNotifications({ topics: ["new-added"] });
@@ -92,6 +93,11 @@ function App() {
             exact
             path={RoutesEnum.USEFUL_INFORMATION_VIEW}
             component={UsefulInfoDetailPage}
+          />
+          <LoggedInRoute
+            exact
+            path={RoutesEnum.PROFILE}
+            component={ProfilePage}
           />
         </Switch>
       </Router>

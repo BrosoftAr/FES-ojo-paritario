@@ -13,5 +13,6 @@ const ApiEndpoints = {
   USERS_MY_DETAILS: "users/myDetails",
   USERS_FORGOT_PASSWORD: "users/forgotPassword",
   USERS_RESET_PASSWORD: "auth/resetPassword",
+  USERS_DELETE_ACCOUNT: "users/remove",
 };
 export default ApiEndpoints;
